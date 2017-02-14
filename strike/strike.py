@@ -21,7 +21,7 @@ class Warn:
     @commands.command(no_pm=True, pass_context=True)
     @checks.admin_or_permissions(kick_members=True)
     async def warn(self, ctx, user : discord.Member):
-        """Warns the user - At 3 warnings the user gets kicked"""
+        """Warns the user - several warnings result in discipline"""
 
         server = ctx.message.server
         author = ctx.message.author
@@ -57,7 +57,7 @@ class Warn:
                 msg = str(user.name) + " has been **kicked** after 3 warnings."
                 data = discord.Embed(colour=discord.Colour(value=colour))
                 data.add_field(name="Warning", value=msg)
-                data.set_footer(text="riceBot")
+                data.set_footer(text="Haxor Warning System")
                 await self.bot.say(embed=data)
                 await self.bot.kick(user)
             except discord.errors.Forbidden:
@@ -70,7 +70,7 @@ class Warn:
             msg = str(user.mention) + ", you have received your second warning! One more warning and you will be **kicked**!"
             data = discord.Embed(colour=discord.Colour(value=colour))
             data.add_field(name="Warning", value=msg)
-            data.set_footer(text="riceBot")
+            data.set_footer(text="Haxor Warning System")
             await self.bot.say(embed=data)
 
             count = "2"
@@ -80,7 +80,7 @@ class Warn:
             msg = str(user.mention) + ", you have received your first warning! At three warnings you will be **kicked**!"
             data = discord.Embed(colour=discord.Colour(value=colour))
             data.add_field(name="Warning", value=msg)
-            data.set_footer(text="riceBot")
+            data.set_footer(text="Haxor Warning System")
             await self.bot.say(embed=data)
 
             count = "1"
