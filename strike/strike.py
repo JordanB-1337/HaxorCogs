@@ -54,12 +54,12 @@ class Warn:
             self.riceCog[server.id][user.id].update({"Count" : count})
             dataIO.save_json(self.profile, self.riceCog)
             try:
-                msg = str(user.name) + " has been **kicked** after 3 warnings."
+                msg = str(user.name) + " has been muted after 3 strikes."
                 data = discord.Embed(colour=discord.Colour(value=colour))
                 data.add_field(name="Warning", value=msg)
                 data.set_footer(text="Haxor Warning System")
                 await self.bot.say(embed=data)
-                await self.bot.kick(user)
+                await remove_roles(user, "h4xor")
             except discord.errors.Forbidden:
                 await self.bot.say("I'm not allowed to do that.")
             except Exception as e:
