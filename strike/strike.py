@@ -21,7 +21,7 @@ class Warn:
     @commands.command(no_pm=True, pass_context=True)
     @checks.admin_or_permissions(kick_members=True)
     async def warn(self, ctx, user : discord.Member):
-        """Warns the user - several warnings result in discipline"""
+        """Warns the user - several warnings result in discipline a mute or ban"""
 
         server = ctx.message.server
         author = ctx.message.author
