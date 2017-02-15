@@ -59,7 +59,7 @@ class Warn:
                 data.add_field(name="Warning", value=msg)
                 data.set_footer(text="Haxor Warning System")
                 await self.bot.say(embed=data)
-                await remove_roles(user, "h4xor")
+                await remove_roles(user, *h4xor)
             except discord.errors.Forbidden:
                 await self.bot.say("I'm not allowed to do that.")
             except Exception as e:
